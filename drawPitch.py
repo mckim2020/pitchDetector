@@ -10,7 +10,8 @@ def interval(timeList):
 
 
 # returns freq distribution
-# r indicates how rapid you will scan/analyze(maybe sampling)
+# r indicates interval of frequency you would like to focus on
+# ie) r = 100 means focusing on 0~400Hz interval
 def plotFreq(timeList, ampList, r):
     # number of sample points
     n = len(timeList)
@@ -22,11 +23,9 @@ def plotFreq(timeList, ampList, r):
         y[i] = ampList[i]
     # apply FFT: Nyquist interval --> [-0.5*fs, 0.5fs]
     # basically a DFT
-    xf = np.linspace(0, 1/(k*ts), n//k)
+    xf = np.linspace(0, 1/(r*ts), n//r)
     yf = scipy.fftpack.fft(y)
 
-    # plt.plot(xf, 2 / n * np.abs(yf[:n // 2]))
-    # plt.show()
     return xf, yf
 
 
