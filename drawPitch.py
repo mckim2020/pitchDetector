@@ -10,8 +10,8 @@ def interval(timeList):
 
 
 # returns freq distribution
-# k indicates how rapid you will scan/analyze(maybe sampling)
-def plotFreq(timeList, ampList, k):
+# r indicates how rapid you will scan/analyze(maybe sampling)
+def plotFreq(timeList, ampList, r):
     # number of sample points
     n = len(timeList)
 
@@ -67,7 +67,8 @@ def maxFreq(x, y):
 
 
 # return pitchList
-def pitch(timeList, ampList, n):
+# r indicates how rapid you will sample/test your mp3(data) file: same as plotFreq function's r value
+def pitch(timeList, ampList, n, r):
     newTimeList = []
     pitchList = []
     chunks = [timeList[x:x+n] for x in range(0, len(timeList), n)]
@@ -76,7 +77,7 @@ def pitch(timeList, ampList, n):
     amps = [ampList[x:x+n] for x in range(0, len(ampList), n)]
     for i in range(len(chunks)):
         newTimeList.append(chunks[i][len(chunks[i]) // 2])
-        xf, yf = plotFreq(chunks[i], amps[i], 100)
+        xf, yf = plotFreq(chunks[i], amps[i], r)
         pitch = maxFreq(xf, yf)
         pitchList.append(pitch)
 
