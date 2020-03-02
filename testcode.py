@@ -1,5 +1,5 @@
 # code in order to analyze given data file
-aNat = 'C:/Users/HOME/Desktop/2학년 1학기/performers_research/csvFiles/aNatAmp.csv'
+aNat = 'aNatAmp.txt'
 timeList, ampList = createTimeAmpList(aNat)
 
 
