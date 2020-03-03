@@ -1,0 +1,3 @@
+# splicing time interval data into non integer creates overflow (over 880Hz)
+# spliced time interval can spliced more but needs more data (for less noise)
+# noise includes everything except main melody
